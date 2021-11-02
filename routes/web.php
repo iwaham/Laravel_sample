@@ -31,4 +31,5 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');
   Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');
 });
+
 Auth::routes();
