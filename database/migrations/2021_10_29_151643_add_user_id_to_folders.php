@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoryToTodos extends Migration
+class AddUserIdToFolders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddCategoryToTodos extends Migration
      */
     public function up()
     {
-        Schema::table('todos', function (Blueprint $table) {
-            $table->integer('category');
+        Schema::table('folders', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
+
+            // 外部キーを設定する
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -25,8 +28,8 @@ class AddCategoryToTodos extends Migration
      */
     public function down()
     {
-        Schema::table('todos', function (Blueprint $table) {
-            $table->dropColumn('category');
+        Schema::table('folders', function (Blueprint $table) {
+            $table->dropColumn('user_id');
         });
     }
 }
