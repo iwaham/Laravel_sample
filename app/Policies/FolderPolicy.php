@@ -8,18 +8,6 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 
 class FolderPolicy
 {
-    use HandlesAuthorization;
-
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * フォルダの閲覧権限
      * @param User $user
